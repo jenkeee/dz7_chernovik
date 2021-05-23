@@ -146,13 +146,12 @@ namespace SApp01
         private void UpdateUI() // метод который  обновляет значение каунтера когда мы его вызываем
         {
             counter.Text = Counter.ToString(); // каунтер
-            steps.Text = shag.ToString(); // количество кликов
+            steps.Text = shag.ToString(); // количество кликов //
                                           //if (MainForm(Target.Visible) // если гол визибл
             if (CheckTHIS() == true) // на апдейт вызываем проверку метода чек гол из удвоителя
             {
                 Target = 0;
                 MessageBox.Show($"Поздравляем, вы достигли заданного числа за {steps.Text} ходов");
-
             }
 
         }
