@@ -47,31 +47,31 @@ namespace SApp01
 
 
         #endregion
-
+        #region кнопки кликаю
         private void btnplus_Click(object sender, EventArgs e)
         {
-            i++;
-            Counter++;
-            shag++;
-            UpdateUI();
-            i = 0;
-            //if (i >= 3)
-            //{
-            //    if (CounterEvent != null)
-            //    {
-            //        CounterEvent.Invoke(this, new CounterEventArgs() { Counter = Counter });
-            //    }
-            //    i = 0;
-            //}
+            plus1();
+            //i++;
+            //Counter++;
+            //shag++;
+            //UpdateUI();
+            //i = 0;
+            ////if (i >= 3)
+            ////{
+            ////    if (CounterEvent != null)
+            ////    {
+            ////        CounterEvent.Invoke(this, new CounterEventArgs() { Counter = Counter });
+            ////    }
+            ////    i = 0;
+            ////}
         }
-        /// ////////////////////////////////////////////////////////////// надо описать методы которые манипулируют в каунтер итд. типа + и х2
         private void textBoxCounter_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(counterChanger.Text, out int number))
             {
                 Counter = number;
                 UpdateUI();
-                
+
             }
             else
             {
@@ -83,19 +83,57 @@ namespace SApp01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Counter *= 2;
-            shag++;
-            UpdateUI();
+            thisX2();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-           
-                /*public bool CheckGoal()
-            {
-                return this.value == this.goal ? true : false;
-            }*/
+
+            /*public bool CheckGoal()
+        {
+            return this.value == this.goal ? true : false;
+        }*/
         }
+
+
+        #endregion
+        /// ////////////////////////////////////////////////////////////// надо описать методы которые манипулируют в каунтер итд. типа + и х2
+        /// 
+
+        #region плюсы минусы и прочее
+        public delegate void goback();
+        Stack<goback> undolast = new Stack<goback>();
+
+        public void plus1()
+        {
+            this.Counter++;
+            this.shag++;
+            UpdateUI();
+            undolast.Push(new goback(minus1));
+        }
+
+        public void minus1()
+        {
+            this.Counter--;
+            this.shag++;
+            UpdateUI();
+        }
+        public void thisX2()
+        {
+            this.Counter *= 2;
+            this.shag++;
+            UpdateUI();
+
+        }
+        public void fromthis2()
+        {
+            this.Counter /= 2;
+            this.shag++;
+            UpdateUI();
+        }
+
+        #endregion
+
         #region чекеры обновляторы
         public void ResetCounter() // метод кнопки сброса снизу который 
         {
