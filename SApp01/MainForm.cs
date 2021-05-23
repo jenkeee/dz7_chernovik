@@ -31,18 +31,18 @@ namespace SApp01
         private void resetCounterButton_Click(object sender, EventArgs e)
         {
             counterControl1.ResetCounter();
-            
+
         }
 
         private void counterControl1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
         private void MainMenu_1_Click(object sender, EventArgs e) // запуск игры , набери число
         {
-            counterControl1.ResetCounter();            
+            counterControl1.ResetCounter();
             // сбрасываем счетчикки
             needNUM.Visible = true;
             int target = counterControl1.GetTarget();
@@ -52,12 +52,26 @@ namespace SApp01
             //lblGoalText.Visible = true;
             //lblGoal.Text = doubler.Goal.ToString();
             //doubler.Reset();
-            Update();            
+            Update();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void отменитьХодToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            counterControl1.otmena();
+        }
+
+        private void MainMenu_2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены, что хотите выйти? ", "пока пока",
+            MessageBoxButtons.OK) == DialogResult.Cancel)
+                System.Console.WriteLine("Вы нажали OK");
+            else System.Console.WriteLine("Вы нажали Cancel");
+            this.Close();
         }
     }
 }

@@ -33,6 +33,7 @@ namespace SApp01
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.MainMenu_1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu_2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.отменитьХодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.needNUM = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.counterControl1 = new SApp01.CounterControl();
@@ -56,7 +57,8 @@ namespace SApp01
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainMenu_1,
-            this.MainMenu_2});
+            this.MainMenu_2,
+            this.отменитьХодToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Size = new System.Drawing.Size(933, 24);
@@ -75,6 +77,14 @@ namespace SApp01
             this.MainMenu_2.Name = "MainMenu_2";
             this.MainMenu_2.Size = new System.Drawing.Size(142, 20);
             this.MainMenu_2.Text = "Выйти из приложения";
+            this.MainMenu_2.Click += new System.EventHandler(this.MainMenu_2_Click);
+            // 
+            // отменитьХодToolStripMenuItem
+            // 
+            this.отменитьХодToolStripMenuItem.Name = "отменитьХодToolStripMenuItem";
+            this.отменитьХодToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.отменитьХодToolStripMenuItem.Text = "Отменить ход";
+            this.отменитьХодToolStripMenuItem.Click += new System.EventHandler(this.отменитьХодToolStripMenuItem_Click);
             // 
             // needNUM
             // 
@@ -146,5 +156,6 @@ namespace SApp01
         private System.Windows.Forms.ToolStripMenuItem MainMenu_2;
         private System.Windows.Forms.Label needNUM;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ToolStripMenuItem отменитьХодToolStripMenuItem;
     }
 }

@@ -19,7 +19,7 @@ namespace SApp01
         private int i = 0;
         private int shag = 0; // добавим переменную шаг
         // 
-        public int Counter { get; set; } = 1;
+        public int Counter { get; set; } = 0;
         //////////////////////////////////получим рандом////////////////////////////////////
         public int Target { get; set; } = 0;
          public int GetTarget()
@@ -32,7 +32,7 @@ namespace SApp01
         public CounterControl()
         {
             InitializeComponent();
-            UpdateUI();
+                           UpdateUI();
            
 
 
@@ -101,15 +101,16 @@ namespace SApp01
         /// 
         //comit
         #region плюсы минусы и прочее
-        public delegate void goback();
-        Stack<goback> undolast = new Stack<goback>();
+        public delegate void goback(); // создаем делигат 
+
+        Stack<goback> undolast = new Stack<goback>(); // создаем делигат на значение до и после
 
         public void plus1()
         {
             this.Counter++;
             this.shag++;
             UpdateUI();
-            undolast.Push(new goback(minus1));
+            undolast.Push(new goback(minus1)); // создадим в делигат каутер наоборт plus1  minus1
         }
 
         public void minus1()
@@ -123,6 +124,7 @@ namespace SApp01
             this.Counter *= 2;
             this.shag++;
             UpdateUI();
+            undolast.Push(new goback(fromthis2)); // тоже самое, запишем предществуещие состояние для кнопки отмена и вызовем метод который обратен ему
 
         }
         public void fromthis2()
@@ -130,6 +132,18 @@ namespace SApp01
             this.Counter /= 2;
             this.shag++;
             UpdateUI();
+        }
+
+        /// <summary>Функция отмены действия. Проверяет стэк, если не пустой, выполняет операцию, обратную последней</summary>
+        public void otmena()
+        {
+            goback reverseFunc;
+            if (undolast.Count != 0)
+            {
+                reverseFunc = undolast.Pop(); // стоковый метод поп удаляет и возвращает
+                reverseFunc();
+            }
+            return;
         }
 
         #endregion
@@ -140,17 +154,21 @@ namespace SApp01
             Counter = 0;
             shag = 0;
             if (Target == 0) Target = GetTarget();
-            UpdateUI();
+            
+                UpdateUI();
         }
 
         private void UpdateUI() // метод который  обновляет значение каунтера когда мы его вызываем
         {
             counter.Text = Counter.ToString(); // каунтер
             steps.Text = shag.ToString(); // количество кликов
-                                          //if (MainForm(Target.Visible) // если гол визибл
-            if (CheckTHIS() == true) // на апдейт вызываем проверку метода чек гол из удвоителя
+            
+                                     //if (MainForm(Target.Visible) // если гол визибл
+                if (shag != 0)
+                    if (CheckTHIS() == true) // на апдейт вызываем проверку метода чек гол из удвоителя
             {
-                Target = 0;
+                Target = 0;           
+                
                 MessageBox.Show($"Поздравляем, вы достигли заданного числа за {steps.Text} ходов");
 
             }
