@@ -99,7 +99,7 @@ namespace SApp01
         #endregion
         /// ////////////////////////////////////////////////////////////// надо описать методы которые манипулируют в каунтер итд. типа + и х2
         /// 
-
+        //comit
         #region плюсы минусы и прочее
         public delegate void goback();
         Stack<goback> undolast = new Stack<goback>();
