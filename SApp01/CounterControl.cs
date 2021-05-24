@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,7 @@ namespace SApp01
         private int i = 0;
         private int shag = 0; // добавим переменную шаг
         // 
-        public int Counter { get; set; } = 1;
+        public int Counter { get; set; } = 0;
         //////////////////////////////////получим рандом////////////////////////////////////
         public int Target { get; set; } = 0;
          public int GetTarget()
@@ -148,6 +148,7 @@ namespace SApp01
             counter.Text = Counter.ToString(); // каунтер
             steps.Text = shag.ToString(); // количество кликов //
                                           //if (MainForm(Target.Visible) // если гол визибл
+if (shag != 0 || Counter > 0)
             if (CheckTHIS() == true) // на апдейт вызываем проверку метода чек гол из удвоителя
             {
                 Target = 0;
