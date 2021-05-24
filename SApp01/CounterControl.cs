@@ -131,6 +131,17 @@ namespace SApp01
             this.shag++;
             UpdateUI();
         }
+        /// <summary>Функция отмены действия. Проверяет стэк, если не пустой, выполняет операцию, обратную последней</summary>
+        public void otmena()
+        {
+            goback reverseFunc;
+            if (undolast.Count > 0)
+            {
+                reverseFunc = undolast.Pop(); // стоковый метод поп удаляет и возвращает
+                reverseFunc();
+            }
+            return;
+        }
 
         #endregion
 
@@ -148,7 +159,7 @@ namespace SApp01
             counter.Text = Counter.ToString(); // каунтер
             steps.Text = shag.ToString(); // количество кликов //
                                           //if (MainForm(Target.Visible) // если гол визибл
-if (shag != 0 || Counter > 0)
+if (shag != 0 || Counter > 0 || shag > 0)
             if (CheckTHIS() == true) // на апдейт вызываем проверку метода чек гол из удвоителя
             {
                 Target = 0;

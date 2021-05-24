@@ -59,5 +59,15 @@ namespace SApp01
         {
 
         }
+
+        private void отменитьПоследнийХодToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            counterControl1.otmena();
+        }
+
+        private void MainMenu_2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
