@@ -40,7 +40,7 @@ namespace SApp01
         }
 
 
-        private void MainMenu_1_Click(object sender, EventArgs e) // запуск игры , набери число
+        public void MainMenu_1_Click(object sender, EventArgs e) // запуск игры , набери число
         {
             counterControl1.ResetCounter();            
             // сбрасываем счетчикки
@@ -67,7 +67,12 @@ namespace SApp01
 
         private void MainMenu_2_Click(object sender, EventArgs e)
         {
+            
+            if (MessageBox.Show("Вы уверены что хотите выйти? В любом случае пока", "YOU dont have a choice",
+             MessageBoxButtons.OK) == DialogResult.OK)
+                System.Console.WriteLine("Вы нажали OK");
             this.Close();
+
         }
     }
 }

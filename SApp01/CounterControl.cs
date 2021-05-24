@@ -123,6 +123,7 @@ namespace SApp01
             this.Counter *= 2;
             this.shag++;
             UpdateUI();
+            undolast.Push(new goback(fromthis2));
 
         }
         public void fromthis2()
@@ -164,7 +165,9 @@ if (shag != 0 || Counter > 0 || shag > 0)
             {
                 Target = 0;
                 MessageBox.Show($"Поздравляем, вы достигли заданного числа за {steps.Text} ходов");
-            }
+                    
+                  // MainForm needNUM.Visible; = false;
+                }
 
         }
         /// ////////////////////// метод который будет проверять равен каунтер таргету или нет

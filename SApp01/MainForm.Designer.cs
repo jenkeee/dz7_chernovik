@@ -154,7 +154,7 @@ namespace SApp01
         private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem MainMenu_1;
         private System.Windows.Forms.ToolStripMenuItem MainMenu_2;
-        private System.Windows.Forms.Label needNUM;
+        public System.Windows.Forms.Label needNUM;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem отменитьПоследнийХодToolStripMenuItem;
     }
